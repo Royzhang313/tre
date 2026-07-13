@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl *)",
+      "Bash(ss -tlnp *)",
+      "Bash(ps aux *)",
+      "Bash(uv run mypy *)",
+      "Bash(uv run ruff *)",
+      "Bash(npx tsc *)",
+      "Bash(npx vite *)",
+      "Bash(uv run pytest *)",
+      "Bash(uv run uvicorn *)",
+      "Bash(uv add *)",
+      "Bash(uv sync *)",
+      "Bash(rm -f *erp_builder.db*)",
+      "Bash(rm -rf *__pycache__*)",
+      "Bash(kill *)",
+      "Bash(pkill *)",
+      "Bash(fuser *)",
+      "Bash(timeout *)",
+      "Bash(nohup *)",
+      "Bash(mkdir *)"
+    ]
+  }
+}

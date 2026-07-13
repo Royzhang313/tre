@@ -1,0 +1,172 @@
+INFO:     Started server process [88290]
+INFO:     Waiting for application startup.
+2026-07-08 19:36:41,114 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-08 19:36:41,114 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("shared_workflow_instances")
+2026-07-08 19:36:41,114 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-07-08 19:36:41,116 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("shared_workflow_history")
+2026-07-08 19:36:41,116 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-07-08 19:36:41,117 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("auth_users")
+2026-07-08 19:36:41,117 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-07-08 19:36:41,117 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("auth_roles")
+2026-07-08 19:36:41,117 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-07-08 19:36:41,118 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("auth_permissions")
+2026-07-08 19:36:41,118 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-07-08 19:36:41,118 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("auth_user_roles")
+2026-07-08 19:36:41,118 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-07-08 19:36:41,119 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("auth_role_permissions")
+2026-07-08 19:36:41,119 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-07-08 19:36:41,119 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("basedata_enterprises")
+2026-07-08 19:36:41,119 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-07-08 19:36:41,119 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("basedata_enterprise_contacts")
+2026-07-08 19:36:41,120 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-07-08 19:36:41,120 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("basedata_companies")
+2026-07-08 19:36:41,120 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-07-08 19:36:41,120 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("basedata_warehouses")
+2026-07-08 19:36:41,120 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-07-08 19:36:41,121 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("shared_audit_logs")
+2026-07-08 19:36:41,121 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-07-08 19:36:41,121 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("brands")
+2026-07-08 19:36:41,121 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-07-08 19:36:41,122 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("brand_warehouses")
+2026-07-08 19:36:41,122 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-07-08 19:36:41,122 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("brand_models")
+2026-07-08 19:36:41,122 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-07-08 19:36:41,123 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("purchase_contracts")
+2026-07-08 19:36:41,123 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-07-08 19:36:41,123 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("purchase_contract_items")
+2026-07-08 19:36:41,123 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-07-08 19:36:41,124 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_contracts")
+2026-07-08 19:36:41,124 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-07-08 19:36:41,125 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sales_contract_items")
+2026-07-08 19:36:41,125 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-07-08 19:36:41,125 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("ai_domain_specs")
+2026-07-08 19:36:41,125 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-07-08 19:36:41,125 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("ai_build_plans")
+2026-07-08 19:36:41,125 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-07-08 19:36:41,126 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("ai_domain_spec_snapshots")
+2026-07-08 19:36:41,126 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-07-08 19:36:41,126 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("ai_build_executions")
+2026-07-08 19:36:41,126 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-07-08 19:36:41,127 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("ai_build_tasks")
+2026-07-08 19:36:41,127 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-07-08 19:36:41,127 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("ai_artifacts")
+2026-07-08 19:36:41,127 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-07-08 19:36:41,128 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("core_event_logs")
+2026-07-08 19:36:41,128 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-07-08 19:36:41,128 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("core_dead_letters")
+2026-07-08 19:36:41,128 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-07-08 19:36:41,129 INFO sqlalchemy.engine.Engine COMMIT
+2026-07-08 19:36:41,132 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-07-08 19:36:41,252 INFO sqlalchemy.engine.Engine SELECT auth_permissions.code, auth_permissions.name, auth_permissions.module, auth_permissions.resource, auth_permissions.action, auth_permissions.id, auth_permissions.created_at, auth_permissions.updated_at 
+FROM auth_permissions 
+WHERE auth_permissions.code = ?
+2026-07-08 19:36:41,252 INFO sqlalchemy.engine.Engine [generated in 0.00036s] ('auth.user.create',)
+2026-07-08 19:36:41,254 INFO sqlalchemy.engine.Engine SELECT auth_permissions.code, auth_permissions.name, auth_permissions.module, auth_permissions.resource, auth_permissions.action, auth_permissions.id, auth_permissions.created_at, auth_permissions.updated_at 
+FROM auth_permissions 
+WHERE auth_permissions.code = ?
+2026-07-08 19:36:41,254 INFO sqlalchemy.engine.Engine [cached since 0.002289s ago] ('auth.user.read',)
+2026-07-08 19:36:41,255 INFO sqlalchemy.engine.Engine SELECT auth_permissions.code, auth_permissions.name, auth_permissions.module, auth_permissions.resource, auth_permissions.action, auth_permissions.id, auth_permissions.created_at, auth_permissions.updated_at 
+FROM auth_permissions 
+WHERE auth_permissions.code = ?
+2026-07-08 19:36:41,255 INFO sqlalchemy.engine.Engine [cached since 0.00331s ago] ('auth.user.update',)
+2026-07-08 19:36:41,256 INFO sqlalchemy.engine.Engine SELECT auth_permissions.code, auth_permissions.name, auth_permissions.module, auth_permissions.resource, auth_permissions.action, auth_permissions.id, auth_permissions.created_at, auth_permissions.updated_at 
+FROM auth_permissions 
+WHERE auth_permissions.code = ?
+2026-07-08 19:36:41,256 INFO sqlalchemy.engine.Engine [cached since 0.004157s ago] ('auth.user.delete',)
+2026-07-08 19:36:41,256 INFO sqlalchemy.engine.Engine SELECT auth_permissions.code, auth_permissions.name, auth_permissions.module, auth_permissions.resource, auth_permissions.action, auth_permissions.id, auth_permissions.created_at, auth_permissions.updated_at 
+FROM auth_permissions 
+WHERE auth_permissions.code = ?
+2026-07-08 19:36:41,257 INFO sqlalchemy.engine.Engine [cached since 0.004992s ago] ('auth.role.manage',)
+2026-07-08 19:36:41,257 INFO sqlalchemy.engine.Engine SELECT auth_permissions.code, auth_permissions.name, auth_permissions.module, auth_permissions.resource, auth_permissions.action, auth_permissions.id, auth_permissions.created_at, auth_permissions.updated_at 
+FROM auth_permissions 
+WHERE auth_permissions.code = ?
+2026-07-08 19:36:41,257 INFO sqlalchemy.engine.Engine [cached since 0.005813s ago] ('basedata.enterprise.create',)
+2026-07-08 19:36:41,258 INFO sqlalchemy.engine.Engine SELECT auth_permissions.code, auth_permissions.name, auth_permissions.module, auth_permissions.resource, auth_permissions.action, auth_permissions.id, auth_permissions.created_at, auth_permissions.updated_at 
+FROM auth_permissions 
+WHERE auth_permissions.code = ?
+2026-07-08 19:36:41,258 INFO sqlalchemy.engine.Engine [cached since 0.00654s ago] ('basedata.enterprise.read',)
+2026-07-08 19:36:41,259 INFO sqlalchemy.engine.Engine SELECT auth_permissions.code, auth_permissions.name, auth_permissions.module, auth_permissions.resource, auth_permissions.action, auth_permissions.id, auth_permissions.created_at, auth_permissions.updated_at 
+FROM auth_permissions 
+WHERE auth_permissions.code = ?
+2026-07-08 19:36:41,259 INFO sqlalchemy.engine.Engine [cached since 0.007337s ago] ('basedata.enterprise.update',)
+2026-07-08 19:36:41,260 INFO sqlalchemy.engine.Engine SELECT auth_permissions.code, auth_permissions.name, auth_permissions.module, auth_permissions.resource, auth_permissions.action, auth_permissions.id, auth_permissions.created_at, auth_permissions.updated_at 
+FROM auth_permissions 
+WHERE auth_permissions.code = ?
+2026-07-08 19:36:41,260 INFO sqlalchemy.engine.Engine [cached since 0.008132s ago] ('basedata.enterprise.delete',)
+2026-07-08 19:36:41,260 INFO sqlalchemy.engine.Engine SELECT auth_permissions.code, auth_permissions.name, auth_permissions.module, auth_permissions.resource, auth_permissions.action, auth_permissions.id, auth_permissions.created_at, auth_permissions.updated_at 
+FROM auth_permissions 
+WHERE auth_permissions.code = ?
+2026-07-08 19:36:41,260 INFO sqlalchemy.engine.Engine [cached since 0.008902s ago] ('basedata.product.create',)
+2026-07-08 19:36:41,261 INFO sqlalchemy.engine.Engine SELECT auth_permissions.code, auth_permissions.name, auth_permissions.module, auth_permissions.resource, auth_permissions.action, auth_permissions.id, auth_permissions.created_at, auth_permissions.updated_at 
+FROM auth_permissions 
+WHERE auth_permissions.code = ?
+2026-07-08 19:36:41,261 INFO sqlalchemy.engine.Engine [cached since 0.009653s ago] ('basedata.product.read',)
+2026-07-08 19:36:41,262 INFO sqlalchemy.engine.Engine SELECT auth_permissions.code, auth_permissions.name, auth_permissions.module, auth_permissions.resource, auth_permissions.action, auth_permissions.id, auth_permissions.created_at, auth_permissions.updated_at 
+FROM auth_permissions 
+WHERE auth_permissions.code = ?
+2026-07-08 19:36:41,262 INFO sqlalchemy.engine.Engine [cached since 0.01044s ago] ('basedata.product.update',)
+2026-07-08 19:36:41,263 INFO sqlalchemy.engine.Engine SELECT auth_permissions.code, auth_permissions.name, auth_permissions.module, auth_permissions.resource, auth_permissions.action, auth_permissions.id, auth_permissions.created_at, auth_permissions.updated_at 
+FROM auth_permissions 
+WHERE auth_permissions.code = ?
+2026-07-08 19:36:41,263 INFO sqlalchemy.engine.Engine [cached since 0.01122s ago] ('basedata.product.delete',)
+2026-07-08 19:36:41,263 INFO sqlalchemy.engine.Engine SELECT auth_permissions.code, auth_permissions.name, auth_permissions.module, auth_permissions.resource, auth_permissions.action, auth_permissions.id, auth_permissions.created_at, auth_permissions.updated_at 
+FROM auth_permissions 
+WHERE auth_permissions.code = ?
+2026-07-08 19:36:41,264 INFO sqlalchemy.engine.Engine [cached since 0.01198s ago] ('basedata.warehouse.create',)
+2026-07-08 19:36:41,264 INFO sqlalchemy.engine.Engine SELECT auth_permissions.code, auth_permissions.name, auth_permissions.module, auth_permissions.resource, auth_permissions.action, auth_permissions.id, auth_permissions.created_at, auth_permissions.updated_at 
+FROM auth_permissions 
+WHERE auth_permissions.code = ?
+2026-07-08 19:36:41,264 INFO sqlalchemy.engine.Engine [cached since 0.01272s ago] ('basedata.warehouse.read',)
+2026-07-08 19:36:41,265 INFO sqlalchemy.engine.Engine SELECT auth_permissions.code, auth_permissions.name, auth_permissions.module, auth_permissions.resource, auth_permissions.action, auth_permissions.id, auth_permissions.created_at, auth_permissions.updated_at 
+FROM auth_permissions 
+WHERE auth_permissions.code = ?
+2026-07-08 19:36:41,265 INFO sqlalchemy.engine.Engine [cached since 0.01347s ago] ('basedata.warehouse.update',)
+2026-07-08 19:36:41,266 INFO sqlalchemy.engine.Engine SELECT auth_permissions.code, auth_permissions.name, auth_permissions.module, auth_permissions.resource, auth_permissions.action, auth_permissions.id, auth_permissions.created_at, auth_permissions.updated_at 
+FROM auth_permissions 
+WHERE auth_permissions.code = ?
+2026-07-08 19:36:41,266 INFO sqlalchemy.engine.Engine [cached since 0.01425s ago] ('basedata.warehouse.delete',)
+2026-07-08 19:36:41,266 INFO sqlalchemy.engine.Engine SELECT auth_permissions.code, auth_permissions.name, auth_permissions.module, auth_permissions.resource, auth_permissions.action, auth_permissions.id, auth_permissions.created_at, auth_permissions.updated_at 
+FROM auth_permissions 
+WHERE auth_permissions.code = ?
+2026-07-08 19:36:41,267 INFO sqlalchemy.engine.Engine [cached since 0.01502s ago] ('purchase-contract.contract.create',)
+2026-07-08 19:36:41,267 INFO sqlalchemy.engine.Engine SELECT auth_permissions.code, auth_permissions.name, auth_permissions.module, auth_permissions.resource, auth_permissions.action, auth_permissions.id, auth_permissions.created_at, auth_permissions.updated_at 
+FROM auth_permissions 
+WHERE auth_permissions.code = ?
+2026-07-08 19:36:41,267 INFO sqlalchemy.engine.Engine [cached since 0.01577s ago] ('purchase-contract.contract.read',)
+2026-07-08 19:36:41,268 INFO sqlalchemy.engine.Engine SELECT auth_permissions.code, auth_permissions.name, auth_permissions.module, auth_permissions.resource, auth_permissions.action, auth_permissions.id, auth_permissions.created_at, auth_permissions.updated_at 
+FROM auth_permissions 
+WHERE auth_permissions.code = ?
+2026-07-08 19:36:41,268 INFO sqlalchemy.engine.Engine [cached since 0.01651s ago] ('purchase-contract.contract.update',)
+2026-07-08 19:36:41,269 INFO sqlalchemy.engine.Engine SELECT auth_permissions.code, auth_permissions.name, auth_permissions.module, auth_permissions.resource, auth_permissions.action, auth_permissions.id, auth_permissions.created_at, auth_permissions.updated_at 
+FROM auth_permissions 
+WHERE auth_permissions.code = ?
+2026-07-08 19:36:41,269 INFO sqlalchemy.engine.Engine [cached since 0.01733s ago] ('purchase-contract.contract.delete',)
+2026-07-08 19:36:41,271 INFO sqlalchemy.engine.Engine SELECT auth_roles.code, auth_roles.name, auth_roles.description, auth_roles.is_system, auth_roles.id, auth_roles.created_at, auth_roles.updated_at 
+FROM auth_roles 
+WHERE auth_roles.code = ?
+2026-07-08 19:36:41,271 INFO sqlalchemy.engine.Engine [generated in 0.00018s] ('admin',)
+2026-07-08 19:36:41,272 INFO sqlalchemy.engine.Engine SELECT auth_roles.code, auth_roles.name, auth_roles.description, auth_roles.is_system, auth_roles.id, auth_roles.created_at, auth_roles.updated_at 
+FROM auth_roles 
+WHERE auth_roles.code = ?
+2026-07-08 19:36:41,272 INFO sqlalchemy.engine.Engine [cached since 0.001258s ago] ('manager',)
+2026-07-08 19:36:41,273 INFO sqlalchemy.engine.Engine SELECT auth_roles.code, auth_roles.name, auth_roles.description, auth_roles.is_system, auth_roles.id, auth_roles.created_at, auth_roles.updated_at 
+FROM auth_roles 
+WHERE auth_roles.code = ?
+2026-07-08 19:36:41,273 INFO sqlalchemy.engine.Engine [cached since 0.002064s ago] ('operator',)
+2026-07-08 19:36:41,275 INFO sqlalchemy.engine.Engine SELECT auth_roles.code, auth_roles.name, auth_roles.description, auth_roles.is_system, auth_roles.id, auth_roles.created_at, auth_roles.updated_at 
+FROM auth_roles 
+WHERE auth_roles.code = ?
+2026-07-08 19:36:41,275 INFO sqlalchemy.engine.Engine [generated in 0.00020s] ('admin',)
+2026-07-08 19:36:41,278 INFO sqlalchemy.engine.Engine SELECT auth_role_permissions.role_id AS auth_role_permissions_role_id, auth_role_permissions.permission_id AS auth_role_permissions_permission_id, auth_role_permissions.id AS auth_role_permissions_id, auth_role_permissions.created_at AS auth_role_permissions_created_at, auth_role_permissions.updated_at AS auth_role_permissions_updated_at 
+FROM auth_role_permissions 
+WHERE auth_role_permissions.role_id IN (?)
+2026-07-08 19:36:41,278 INFO sqlalchemy.engine.Engine [generated in 0.00022s] ('6547e7366e89408fa4b679ec361246e8',)
+2026-07-08 19:36:41,280 INFO sqlalchemy.engine.Engine SELECT auth_permissions.code, auth_permissions.name, auth_permissions.module, auth_permissions.resource, auth_permissions.action, auth_permissions.id, auth_permissions.created_at, auth_permissions.updated_at 
+FROM auth_permissions
+2026-07-08 19:36:41,280 INFO sqlalchemy.engine.Engine [generated in 0.00018s] ()
+Seed: ERP_ADMIN_PASSWORD 未设置，跳过管理员创建。请设置环境变量后重启。
+2026-07-08 19:36:41,282 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     Application startup complete.
+ERROR:    [Errno 98] error while attempting to bind on address ('0.0.0.0', 8000): address already in use
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
