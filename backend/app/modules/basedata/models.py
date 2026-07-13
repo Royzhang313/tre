@@ -1,4 +1,7 @@
-"""基础资料模块 —— ORM 模型"""
+"""基础资料模块 —— ORM 模型（SaaS 多租户版）
+
+所有业务实体均包含 tenant_id 实现行级数据隔离。
+"""
 
 from uuid import UUID
 
@@ -6,10 +9,15 @@ from sqlalchemy import JSON, ForeignKey, String, UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.shared.base_model import BaseModel
+from app.shared.tenant import TenantMixin
 
 
-class Enterprise(BaseModel):
-    """企业"""
+class Enterprise(BaseModel, TenantMixin):
+    """企业（外部商业实体 —— 客户 / 供应商 / 贸易商 / 工厂）
+
+    统一管理所有外部商业伙伴。通过 enterprise_type JSON 字段多选标记角色，
+    同一企业可同时作为客户和供应商。
+    """
 
     __tablename__ = "basedata_enterprises"
 
@@ -30,7 +38,7 @@ class Enterprise(BaseModel):
         return f"<Enterprise {self.name}>"
 
 
-class EnterpriseContact(BaseModel):
+class EnterpriseContact(BaseModel, TenantMixin):
     """企业联系人"""
 
     __tablename__ = "basedata_enterprise_contacts"
@@ -47,8 +55,12 @@ class EnterpriseContact(BaseModel):
         return f"<Contact {self.name}>"
 
 
-class Company(BaseModel):
-    """执行主体公司"""
+class Company(BaseModel, TenantMixin):
+    """执行主体公司（我方内部法律实体）
+
+    采购合同和销售合同均绑定 company_id，决定以哪家主体公司签约。
+    在财务模块（收款/付款）中作为收款方/付款方。
+    """
 
     __tablename__ = "basedata_companies"
 
@@ -64,8 +76,8 @@ class Company(BaseModel):
         return f"<Company {self.name}>"
 
 
-class Warehouse(BaseModel):
-    """仓库"""
+class Warehouse(BaseModel, TenantMixin):
+    """仓库（物理仓库）"""
 
     __tablename__ = "basedata_warehouses"
 
@@ -76,7 +88,7 @@ class Warehouse(BaseModel):
         return f"<Warehouse {self.name}>"
 
 
-class CommissionPlatform(BaseModel):
+class CommissionPlatform(BaseModel, TenantMixin):
     """撮合平台"""
 
     __tablename__ = "basedata_commission_platforms"

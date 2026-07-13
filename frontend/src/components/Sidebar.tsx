@@ -15,12 +15,10 @@ function MenuNode({ item, collapsed }: { item: MenuItem; collapsed: boolean }) {
   const hasChildren = item.children && item.children.length > 0
 
   if (hasChildren) {
-    // 默认展开，只有在 collapsedGroups 里的才折叠
     const isExpanded = !collapsedGroups.has(item.label)
 
     return (
       <div className="mb-1">
-        {/* 分组标题 —— 可点击展开/收起 */}
         <button
           onClick={() => toggleGroup(item.label)}
           className={`
@@ -43,7 +41,6 @@ function MenuNode({ item, collapsed }: { item: MenuItem; collapsed: boolean }) {
           )}
         </button>
 
-        {/* 子菜单 */}
         {isExpanded && (
           <div className={collapsed ? "mt-1 space-y-0.5" : "mt-1 ml-1 space-y-0.5"}>
             {item.children!.map((child, i) => (
@@ -71,7 +68,6 @@ function MenuNode({ item, collapsed }: { item: MenuItem; collapsed: boolean }) {
     )
   }
 
-  // 无子菜单 —— 直接链接
   return (
     <Link
       to={item.route ?? "#"}
@@ -95,7 +91,6 @@ function MenuNode({ item, collapsed }: { item: MenuItem; collapsed: boolean }) {
 // 侧边栏
 // ============================================================
 
-/** 沙盒预览菜单项类型 */
 interface PreviewMenuItem {
   label: string
   route: string
@@ -148,7 +143,7 @@ export function Sidebar() {
           {!sidebarCollapsed && <span className="truncate">工作台</span>}
         </Link>
 
-        {/* 采购 —— 硬编码入口 */}
+        {/* 采购 */}
         <Link
           to="/purchase-contracts"
           className={`
@@ -161,7 +156,7 @@ export function Sidebar() {
           {!sidebarCollapsed && <span className="truncate">采购</span>}
         </Link>
 
-        {/* 销售 —— 硬编码入口 */}
+        {/* 销售 */}
         <Link
           to="/sales-contracts"
           className={`
@@ -174,7 +169,33 @@ export function Sidebar() {
           {!sidebarCollapsed && <span className="truncate">销售</span>}
         </Link>
 
-        {/* 回收站 —— 硬编码入口 */}
+        {/* 产品 */}
+        <Link
+          to="/products"
+          className={`
+            flex items-center gap-2 px-3 py-1.5 rounded-md text-sm text-slate-700 hover:bg-slate-100 transition-colors
+            ${sidebarCollapsed ? "justify-center px-2" : ""}
+          `}
+          title="产品"
+        >
+          <Icon name="Package" size={16} />
+          {!sidebarCollapsed && <span className="truncate">产品</span>}
+        </Link>
+
+        {/* 货权库存 */}
+        <Link
+          to="/inventory"
+          className={`
+            flex items-center gap-2 px-3 py-1.5 rounded-md text-sm text-slate-700 hover:bg-slate-100 transition-colors
+            ${sidebarCollapsed ? "justify-center px-2" : ""}
+          `}
+          title="库存"
+        >
+          <Icon name="BarChart3" size={16} />
+          {!sidebarCollapsed && <span className="truncate">库存</span>}
+        </Link>
+
+        {/* 回收站 */}
         <Link
           to="/recycle-bin"
           className={`
@@ -225,17 +246,6 @@ export function Sidebar() {
               </Link>
             ))}
           </div>
-        </div>
-      )}
-
-      {/* 底部操作（折叠时） */}
-      {sidebarCollapsed && (
-        <div className="mt-auto pt-4 border-t border-slate-200 mt-4">
-          <button className="w-full flex items-center justify-center px-2 py-2 rounded-md text-sm text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
-            title="退出登录"
-          >
-            <Icon name="LogOut" size={16} />
-          </button>
         </div>
       )}
     </aside>

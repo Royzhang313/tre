@@ -5,6 +5,9 @@ import { AuthProvider, useAuth } from "./contexts/AuthContext"
 import { ToastProvider, ConfirmProvider } from "./components/shared/Dialog"
 import { AppShell } from "./components/AppShell"
 import { LoginPage } from "./features/auth/LoginPage"
+import { ProductList } from "./features/product/ProductList"
+import { ProductForm } from "./features/product/ProductForm"
+import { ContractStockList } from "./features/inventory/ContractStockList"
 
 const queryClient = new QueryClient({ defaultOptions: { queries: { staleTime: 30000 } } })
 
@@ -25,6 +28,12 @@ export default function App() {
             <Routes>
               <Route path="/login" element={<LoginPage />} />
               <Route path="/*" element={<AuthGuard><AppShell /></AuthGuard>} />
+              {/* Product Routes */}
+              <Route path="/products" element={<AuthGuard><ProductList /></AuthGuard>} />
+              <Route path="/products/new" element={<AuthGuard><ProductForm /></AuthGuard>} />
+              <Route path="/products/:id/edit" element={<AuthGuard><ProductForm /></AuthGuard>} />
+              {/* Inventory Routes */}
+              <Route path="/inventory" element={<AuthGuard><ContractStockList /></AuthGuard>} />
             </Routes>
             </ConfirmProvider>
             </ToastProvider>

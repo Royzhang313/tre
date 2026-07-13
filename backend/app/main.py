@@ -14,7 +14,7 @@ from app.api.v1 import _load_module_routers, register_exception_handlers
 # 预加载所有业务模块（触发 ModuleRegistry + 路由注册）
 _preload_modules = [
     "app.modules.auth", "app.modules.basedata", "app.modules.brand",
-    "app.modules.purchase_contract", "app.modules.sales_contract",
+    "app.modules.product", "app.modules.purchase_contract", "app.modules.sales_contract",
     "app.modules.shipping", "app.modules.finance", "app.modules.system",
     "app.modules.recycle_bin", "app.modules.audit", "app.modules.inventory", "app.ai",
 ]
@@ -114,4 +114,3 @@ app.mount("/uploads", StaticFiles(directory=uploads_dir), name="uploads")
 async def root():
     """根路径"""
     return {"message": f"欢迎使用 {settings.app_name} API"}
-

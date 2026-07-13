@@ -1,4 +1,12 @@
-"""品牌模块 —— ORM 模型（应用层查重，排除软删除数据）"""
+"""品牌模块 —— ORM 模型（SaaS 多租户版）
+
+品牌/型号/品牌仓库均按租户隔离。
+应用层查重时排除软删除数据。
+
+独立模块设计：
+- Brand 不并入 BaseData，保持独立 CRUD
+- 采购/销售/产品均可引用 Brand
+"""
 
 from uuid import UUID
 
@@ -6,9 +14,10 @@ from sqlalchemy import ForeignKey, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.shared.base_model import BaseModel
+from app.shared.tenant import TenantMixin
 
 
-class Brand(BaseModel):
+class Brand(BaseModel, TenantMixin):
     """PET 品牌"""
 
     __tablename__ = "brands"
@@ -29,8 +38,8 @@ class Brand(BaseModel):
         return f"<Brand {self.name}>"
 
 
-class BrandWarehouse(BaseModel):
-    """品牌发货仓库"""
+class BrandWarehouse(BaseModel, TenantMixin):
+    """品牌发货仓库（品牌维度下的发货/提货仓库）"""
 
     __tablename__ = "brand_warehouses"
 
@@ -47,8 +56,8 @@ class BrandWarehouse(BaseModel):
         return f"<BrandWarehouse {self.name}>"
 
 
-class BrandModel(BaseModel):
-    """品牌型号"""
+class BrandModel(BaseModel, TenantMixin):
+    """品牌型号（规格）"""
 
     __tablename__ = "brand_models"
 
